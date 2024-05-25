@@ -1,0 +1,75 @@
+run_name: Wikidiverse
+seed: 42
+
+ent:
+  model_dir: "/LLM-Research/Meta-Llama-3-8B-Instruct"
+  train_data_dir: "dataset/wikidiverse/entities/entity2brief_train.json"
+  train_output_dir: "dataset/wikidiverse/entities/entity2sum_train.json"
+  val_data_dir: "dataset/wikidiverse/entities/entity2brief_valid.json"
+  val_output_dir: "dataset/wikidiverse/entities/entity2sum_valid.json"
+  test_data_dir: "dataset/wikidiverse/entities/entity2brief_test.json"
+  test_output_dir: "dataset/wikidiverse/entities/entity2sum_test.json"
+
+mention:
+  # iamge
+  model_dir_img: "Llava-v1.6-mistral-7b-hf"
+  train_mentions_dir: "dataset/wikidiverse/candidates/train_w_10cands_pos_source.json"
+  train_save_dir: "dataset/wikidiverse/candidates/train_w_10cands_pos_source_des_llava.json"
+  val_mentions_dir: "dataset/wikidiverse/candidates/valid_w_10cands_pos_source.json"
+  val_save_dir: "dataset/wikidiverse/candidates/valid_w_10cands_pos_source_des_llava.json"
+  test_mentions_dir: "dataset/wikidiverse/candidates/test_w_10cands_pos_source.json"
+  test_save_dir: "dataset/wikidiverse/candidates/test_w_10cands_pos_source_des_llava.json"
+  train_kb_img_folder: "dataset/wikidiverse/mention_image/train_image/train_"
+  val_kb_img_folder: "dataset/wikidiverse/mention_image/valid_image/valid_"
+  test_kb_img_folder: "dataset/wikidiverse/mention_image/test_image/test_"
+
+  model_dir_text: "LLM-Research/Meta-Llama-3-8B-Instruct"
+  train_data_dir: "dataset/wikidiverse/candidates/train_w_10cands_pos_source_des_llava.json"
+  train_output_dir: "dataset/wikidiverse/candidates/train_w_10cands_pos_source_des_llava_llama.json"
+  val_data_dir: "dataset/wikidiverse/candidates/valid_w_10cands_pos_source_des_llava.json"
+  val_output_dir: "dataset/wikidiverse/candidates/valid_w_10cands_pos_source_des_llava_llama.json"
+  test_data_dir: "dataset/wikidiverse/candidates/test_w_10cands_pos_source_des_llava.json"
+  test_output_dir: "dataset/wikidiverse/candidates/test_w_10cands_pos_source_des_llava_llama.json"
+  
+embed:
+  max_length: 4096
+  emb_model_dir: "SFR-Embedding-Mistral"
+  train_data_dir: "dataset/wikidiverse/entities/entity2sum_train.json"
+  train_embed_dir: "dataset/wikidiverse/entities/embedding_SFR_train.json"
+  val_data_dir: "dataset/wikidiverse/entities/entity2sum_valid.json"
+  val_embed_dir: "dataset/wikidiverse/entities/embedding_SFR_valid.json"
+  test_data_dir: "dataset/wikidiverse/entities/entity2sum_test.json"
+  test_embed_dir: "dataset/wikidiverse/entities/embedding_SFR_test.json"
+
+
+top:
+  K: 5
+  max_length: 4096
+  model_dir: "SFR-Embedding-Mistral"
+  train_database_emb: "dataset/wikidiverse/entities/embedding_SFR_train.json"
+  train_database_sum: "dataset/wikidiverse/entities/entity2sum_train.json"
+  train_mention_dir: "dataset/wikidiverse/candidates/train_w_10cands_pos_source_des_llava_llama.json"
+  train_mention_topK_dir: "dataset/wikidiverse/candidates/train_w_10cands_pos_source_des_llava_llama_topK.json"
+  val_database_emb: "dataset/wikidiverse/entities/embedding_SFR_valid.json"
+  val_database_sum: "dataset/wikidiverse/entities/entity2sum_valid.json"
+  val_mention_dir: "dataset/wikidiverse/candidates/valid_w_10cands_pos_source_des_llava_llama.json"
+  val_mention_topK_dir: "dataset/wikidiverse/candidates/valid_w_10cands_pos_source_des_llava_llama_topK.json"
+  test_database_emb: "dataset/wikidiverse/entities/embedding_SFR_test.json"
+  test_database_sum: "dataset/wikidiverse/entities/entity2sum_test.json"
+  test_mention_dir: "dataset/wikidiverse/candidates/test_w_10cands_pos_source_des_llava_llama.json"
+  test_mention_topK_dir: "dataset/wikidiverse/candidates/test_w_10cands_pos_source_des_llava_llama_topK.json"
+
+infer:
+  max_length: 2048
+  model_id: "LLM-Research/Meta-Llama-3-8B-Instruct"
+  ckpt_id: "checkpoint-2200"
+  train_database_sum: "dataset/wikidiverse/entities/entity2sum_train.json"
+  train_mention_topK_dir: "dataset/wikidiverse/candidates/train_w_10cands_pos_source_des_llava_llama_topK.json"
+  train_res_topK_dir: "dataset/wikidiverse/candidates/res_train_top5_SFR.json"
+  val_database_sum: "dataset/wikidiverse/entities/entity2sum_valid.json"
+  val_mention_topK_dir: "dataset/wikidiverse/candidates/valid_w_10cands_pos_source_des_llava_llama_topK.json"
+  val_res_topK_dir: "dataset/wikidiverse/candidates/res_valid_top5_SFR.json"
+  test_database_sum: "dataset/wikidiverse/entities/data4format_test1.json"
+  test_mention_topK_dir: "dataset/wikidiverse/candidates/test_w_100cands_pos_source_llava2_top5_SFR.json"
+  test_res_topK_dir: "dataset/wikidiverse/candidates/res_test_top5_SFR.json"
+
