@@ -1,2 +1,2 @@
-
-CUDA_VISIBLE_DEVICES='0' python -u ./code/main.py --config "./config/wikidiverse.yaml"
+echo "Device is ${1}. Running on dataset ${2}";
+CUDA_VISIBLE_DEVICES=${1} python -u ./code/main.py --config "./config/${2}.yaml"
