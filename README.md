@@ -69,21 +69,6 @@ bash run.sh 0 wikidiverse  # for wikidiverse
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Model Performance Table</title>
-<style>
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center;
-  }
-  th {
-    background-color: #f2f2f2;
-  }
-</style>
 </head>
 <body>
 <table>
