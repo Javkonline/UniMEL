@@ -2,15 +2,9 @@
 
 This repository is the official implementation for the paper titled "UniMEL: A Unified Framework for Multimodal Entity Linking with Large Language Models".
 
-```html
 <p align="center">
   <img src="framework.png" alt="unimel" width="640">
 </p>
-```
-
-
-
-
 
 ## Usage
 
@@ -71,7 +65,6 @@ bash run.sh 0 wikidiverse  # for wikidiverse
 
 #### Main results
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -331,6 +324,4 @@ bash run.sh 0 wikidiverse  # for wikidiverse
 </table>
 </body>
 </html>
-
-```
 
